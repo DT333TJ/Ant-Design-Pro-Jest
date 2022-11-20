@@ -1,3 +1,4 @@
+import { isNumber } from 'lodash';
 import { parse } from 'querystring';
 
 /* eslint no-useless-escape:0 import/prefer-default-export:0 */
@@ -22,3 +23,9 @@ export const isAntDesignProOrDev = (): boolean => {
 };
 
 export const getPageQuery = () => parse(window.location.href.split('?')[1]);
+
+export const sumFunc = (a?: any, b ?: any) => {
+  const aResult = isNumber(a) ? +a : 0
+  const bResult = isNumber(b) ? b : 0
+  return aResult + bResult
+}

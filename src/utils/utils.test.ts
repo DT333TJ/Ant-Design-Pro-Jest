@@ -1,4 +1,4 @@
-import { isUrl } from './utils';
+import { isUrl, sumFunc } from './utils';
 
 describe('isUrl tests', (): void => {
   it('should return false for invalid and corner case inputs', (): void => {
@@ -35,3 +35,20 @@ describe('isUrl tests', (): void => {
     expect(isUrl('https://www.example.com/test/123?foo=bar')).toBeTruthy();
   });
 });
+
+describe('sumFunc tests', (): void => {
+  expect(sumFunc()).toBe(0)
+  expect(sumFunc('a123')).toBe(0)
+  expect(sumFunc('','a123')).toBe(0)
+  expect(sumFunc('a123', 'a321')).toBe(0)
+  expect(sumFunc(false, false)).toBe(0)
+  expect(sumFunc(true, true)).toBe(0)
+  expect(sumFunc(true, false)).toBe(0)
+  expect(sumFunc(false, true)).toBe(0)
+  expect(sumFunc('-123', false)).toBe(0)
+  expect(sumFunc('-123', '2')).toBe(0)
+  expect(sumFunc(1, '2')).toBe(1)
+  expect(sumFunc(1, 1)).toBe(2)
+  expect(sumFunc(0.1, 0.1)).toBeCloseTo(0.2)
+  expect(sumFunc(0.1, 0.2)).toBeCloseTo(0.3)
+})
