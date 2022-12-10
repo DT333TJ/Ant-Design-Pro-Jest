@@ -2,7 +2,10 @@ import React from 'react';
 import { PageContainer } from '@ant-design/pro-layout';
 import { Card, Alert, Typography } from 'antd';
 import { useIntl, FormattedMessage } from 'umi';
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 import styles from './Welcome.less';
+import markdown from '../assets/test.md'
 
 const CodePreview: React.FC = ({ children }) => (
   <pre className={styles.pre}>
@@ -14,6 +17,7 @@ const CodePreview: React.FC = ({ children }) => (
 
 export default (): React.ReactNode => {
   const intl = useIntl();
+  
   return (
     <PageContainer>
       <Card>
@@ -57,6 +61,10 @@ export default (): React.ReactNode => {
           </a>
         </Typography.Text>
         <CodePreview>yarn add @ant-design/pro-layout</CodePreview>
+      </Card>
+
+      <Card title="markdown">
+      <ReactMarkdown remarkPlugins={[remarkGfm]} >{markdown}</ReactMarkdown>
       </Card>
     </PageContainer>
   );
