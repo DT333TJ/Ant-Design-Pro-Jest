@@ -63,7 +63,7 @@ export default (): React.ReactNode => {
         <CodePreview>yarn add @ant-design/pro-layout</CodePreview>
       </Card>
 
-      <Card title="markdown">
+      <Card title="markdown" className='reactMarkDownClass'>
       <ReactMarkdown remarkPlugins={[remarkGfm]} >{markdown}</ReactMarkdown>
       </Card>
     </PageContainer>
